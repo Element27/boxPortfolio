@@ -1,11 +1,52 @@
 .boxColor {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-  display: flex;
+  /* width: 50px; */
+  /* height: 50px; */
+  /* border-radius: 8px; */
+  /* display: flex; */
   justify-content: center;
   align-items: center;
-  color: white;
+  /* color: white; */
   font-weight: 600;
   position: absolute;
 }
+
+.drop {
+  position: absolute;
+  /* height: 200px; */
+  width: fit-content;
+  padding: 2rem;
+  /* background: #54ABFB; */
+  border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+  opacity: 0.8;
+  /* border: 2px solid #3d93ff; */
+}
+
+.drop::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* background: #318CFE; */
+  border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+  box-shadow: -2px 3px 1.6px, -0.4px 6px 3.2px, inset -0.6px 0.6px 1px #f5f9fc,
+    inset 0.2px 0.6px 1px #193d55, inset 0.2px -0.2px 2.2px white,
+    inset 4px -0.4px 4.4px #193d55;
+}
+
+/* 
+Light Mode:
+
+Primary Color: #193D55
+Background Color: #F5F9FC
+Text Color: #242A2F
+Accent Color: #F6921E
+*/
+
+/* 
+Dark Mode:
+
+Primary Color: #193D55
+Background Color: #242A2F
+Text Color: #F5F9FC
+Accent Color: #F6921E
+*/

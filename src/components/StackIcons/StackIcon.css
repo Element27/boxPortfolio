@@ -1,0 +1,19 @@
+.stackicon {
+  font-size: 4rem;
+  opacity: 0.8;
+  position: absolute;
+}
+
+.stacktext {
+  /* position: absolute; */
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: flex-end; */
+  /* column-gap: 1rem; */
+  /* justify-content: center; */
+}
+.stacktext .text {
+  top: 10;
+  font-size: 1.5rem;
+  text-shadow: 0px 0px 3px white;
+}

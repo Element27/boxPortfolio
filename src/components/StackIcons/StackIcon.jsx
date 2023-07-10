@@ -1,11 +1,7 @@
 
-import './BoxColor.css'
 import { useEffect, useRef, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-
-
-export default function BoxColor({ color }) {
-  // console.log(parentSize)
+export default function StackIcon({ color, children }) {
 
   const windowWidth = window.innerWidth
 
@@ -27,10 +23,13 @@ export default function BoxColor({ color }) {
 
   const boxRef = useRef()
 
+
+  const randomDuration = Math.floor(Math.random() * ((10000 - 4000 + 1) / 1000)) * 1000 + 4000
+
   const spring = useSpring({
     from: { x: xCenter, y: yCenter },
     to: { x: xAxis, y: yAxis },
-    config: { duration: 7000 }
+    config: { duration: randomDuration + 1000 }
   })
 
 
@@ -43,38 +42,42 @@ export default function BoxColor({ color }) {
     return res
   }
 
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       setXAxis(randomCoord(windowWidth))
       setYAxis(randomCoord(windowHeight))
-    }, 5000)
+    }, randomDuration)
 
     return () => {
       clearInterval(interval)
     }
   }, [])
 
-  // console.log("xyais", xAxis, yAxis)
-
-
-  // boxshadow styling
   const styles = {
     bubble: {
-      backgroundColor: `${applyColor ? color : '#CDE5F6'}`,
+      // backgroundColor: `${applyColor ? color : '#CDE5F6'}`,
       display: `${hideBubble ? 'none' : 'flex'}`,
+      width: 'fit-content',
       ...spring
     }
   }
 
 
+
   return (
     <animated.div
       ref={boxRef}
-      className='boxColor drop' style={styles.bubble}
+      className='' style={styles.bubble}
       onMouseEnter={() => setApplyColor(true)}
       onMouseLeave={() => setApplyColor(false)}
-      onClick={() => setHideBubble(true)}
+    // onClick={() => setHideBubble(true)}
     // onMouseOver={() => { setApplyColor(true) }}
-    >{color}</animated.div>
+    >
+      <div style={{ color: `${applyColor ? color : 'grey'}` }}>
+        {children}
+      </div>
+    </animated.div>
   )
 }
